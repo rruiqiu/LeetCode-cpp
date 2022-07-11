@@ -38,4 +38,5 @@ The total cost is 6.
 ## Solving Ideas
 
 This question is kind of tricky, main idea is to compare the smallest and add them during the movement of array and find the smallest cost. Notice it can either climb one or two steps. A diagram can better represent the algorithm below.
-![Image text](leetcode/0746.Min Cost Climbing Stairs/image-20220710221114831.png)
+
+![Image text](https://github.com/richardddddddd/LeetCode-cpp/blob/main/leetcode/0746.Min%20Cost%20Climbing%20Stairs/image-20220710221114831.png)
