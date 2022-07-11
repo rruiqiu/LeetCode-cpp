@@ -72,7 +72,7 @@ int main(){
   
   //find the maximum value(int type) in the hashmap.
   // retrived from (https://www.techiedelight.com/find-element-with-the-maximum-value-in-a-map-in-cpp/ )
-	auto pr = std::max_element(map.begin(), map.end(), [](const auto &x, const auto &y) {return x.second < y.second;});
+  auto pr = std::max_element(map.begin(), map.end(), [](const auto &x, const auto &y) {return x.second < y.second;});
   std::cout << pr->first << std::endl;   //will return the largest map key, pr->second will return the value
   
   
