@@ -30,6 +30,10 @@ int main()
       cout << "value of v = " << *v << endl;
       v++;
    }
- 
+	 //print out the content of vector
+   for(vector<int>::iterator it = nums.begin();it!=nums.end();++it){
+    cout<<""<< *it <<'\n';
+   }
+
    return 0;
 }
