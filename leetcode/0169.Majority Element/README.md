@@ -1,3 +1,5 @@
+# [0169.Majority Element](https://leetcode.com/problems/majority-element/)
+
 ## Question
 
 Given an array `nums` of size `n`, return *the majority element*.
