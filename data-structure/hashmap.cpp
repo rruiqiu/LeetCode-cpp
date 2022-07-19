@@ -8,7 +8,9 @@ using namespace std;
 //三种方法
 
 //第一种，用insert函数插入pair
-mapStudent.insert(pair<int,string>(000,"student_zero"));
+mapStudent.insert(pair<int,string>(000,"student_zero"));  
+
+//Notice that the insert method will not cover the raw value if there are two same keys appeared, if want to cover should be used [] method.
 
 // 第二种 用insert函数插入value_type数据
 mapStudent.insert(map<int, string>::value_type(001, "student_one"));
@@ -27,14 +29,16 @@ mapStudent[456] = "student_second";
 using namespace std;
 
 int main(){
-  std::unordered_map<int,string> mymap; //creat a mymap with key is string and value is string.
+  std::unordered_map<int,string> mymap; //creat a mymap with key is int and value is string.
   //we can insert the element into the hashmap or directly assign the hashmap
   
   mymap = {
     {200,"zenuo"},
     {100,"qiuqiu"},
     {50,"shouzi"},
-  }
+  };
+  
+  //For two int types in hashmap, it can be also used to count the number appeared by directly using the ++ operator to assign the value by using []operator.
   
   //print all elements in the hashmap
   for (auto& x: mymap) {
@@ -56,7 +60,7 @@ int main(){
   cout << mymap[102] << "\n";
   
   //The other way to find an element in the hashmap
-  auto it = mymap.find(200);
+  auto it = mymap.find(200); //notice this is used to find the key 
   if(it != mymap.end()){
     cout << it->first << ":" << it->second << "\n";
   }else{
