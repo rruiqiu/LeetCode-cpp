@@ -24,6 +24,8 @@ Hi, below is my studying notes for the leetcode question.
 
 [0349.Intersection of Two Arrays - hashset](#0349.Intersection of Two Arrays)
 
+[0392. Is Subsequence](#0392. Is Subsequence)
+
 [0268.Missing Number - sorting/bit manipulation](#0268.Missing Number)
 
 [0746.Min Cost Climbing Stairs - dynamic programming](#0746.Min Cost Climbing Stairs)
@@ -1123,6 +1125,79 @@ public:
     }
 };
 ```
+
+# [0392. Is Subsequence](https://leetcode.com/problems/is-subsequence/)
+
+## Question
+
+Given two strings `s` and `t`, return `true` *if* `s` *is a **subsequence** of* `t`*, or* `false` *otherwise*.
+
+A **subsequence** of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., `"ace"` is a subsequence of `"abcde"` while `"aec"` is not).
+
+
+**Example 1:**
+
+```
+Input: s = "abc", t = "ahbgdc"
+Output: true
+```
+
+**Example 2:**
+
+```
+Input: s = "axc", t = "ahbgdc"
+Output: false
+```
+
+## Solving Ideas
+
+Some concepts, string in cpp is iteratable. Put the t into a hashmap with each value corresponds to the index. Find s string and compare the found one value before. The previous one should be smaller than the next one and if not found return false.
+
+Problem countered: repetitive t = "baab".
+
+Another Idea: loop the first string with the first character, inside that loop. loop the string t until find the mathced t[i] = s[j], record i and j value, j important, loop the second string, the second loop will start from the found index of j, 
+
+## Answer
+
+```cpp
+class Solution {
+public:
+    bool isSubsequence(string s, string t) {
+        if(s.length()==0){
+            return true;
+        }
+        if(t.length()==0){
+            return false;
+        }
+
+        auto temp = t.length();
+        int count = 0;
+        bool res=true;
+        for(int i=0;i<s.length();i++){
+            if(res==false){return res;}
+            char A = s[i];
+            if(count==temp){return false;}
+            for(int j=count;j<temp;j++){
+                count --;
+                char B = t[j];
+                if(A==B && j > count){
+                    count = j+1;
+                    res = true;
+                    break;
+                }else{
+                    res = false;
+                }
+            }
+            
+        }
+        return res;
+    }
+    
+    
+};
+```
+
+
 
 # [0724.Find Pivot Index](https://leetcode.com/problems/find-pivot-index/)
 
