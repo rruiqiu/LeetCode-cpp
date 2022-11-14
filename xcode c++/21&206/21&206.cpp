@@ -176,6 +176,24 @@ public:
         }
         return dummy->next;
     }
+    
+    
+    Node* reverseList(Node* head) {
+        Node* current = head;
+        Node *prev = NULL, *next = NULL;
+ 
+        while (current != NULL) {
+            // Store next
+            next = current->next;
+            // Reverse current node's pointer
+            current->next = prev;
+            // Move pointers one position ahead.
+            prev = current;
+            current = next;
+        }
+        head = prev;
+        return head;
+    }
 };
 
 
@@ -207,6 +225,10 @@ int main()
     result.setHead(res.mergeTwoLists(ptr1, ptr2));//ans linked to the head of the
 
     // Print the list
+    result.printList();
+    cout << endl;
+    cout << endl<<"reversed list";
+    result.setHead(res.reverseList(result.getHead()));
     result.printList();
     cout << endl;
 
