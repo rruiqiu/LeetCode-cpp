@@ -194,6 +194,28 @@ public:
         head = prev;
         return head;
     }
+    
+    Node* middleNode(Node* head) {
+//        Node* current = head;
+//        Node* middle = head;
+//        int count = 0;
+//        while(current!=NULL){
+//            current = current->next;
+//            count ++;
+//        }
+//        for(int i=0; i<count/2;i++){
+//            middle = middle -> next;
+//        }
+//
+//        return middle;
+        //Linked List Cycle Theorem: When fast pointed reaches end then slow is going to be at middle.
+        Node *slow = head, *fast = head;
+        while (fast && fast->next){
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        return slow;
+    }
 };
 
 
@@ -230,6 +252,7 @@ int main()
     cout << endl<<"reversed list";
     result.setHead(res.reverseList(result.getHead()));
     result.printList();
+    result.setHead(res.middleNode(result.getHead()));
     cout << endl;
 
     // Delete node at position 2.

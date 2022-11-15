@@ -773,7 +773,7 @@ bool isIsomorphic(string X, string Y)
 };
 ```
 
-# [206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
+# [0206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
 
 ## Question
 
@@ -1492,6 +1492,83 @@ int minCostClimbingStairs(vector<int>& cost) {
     }
     return min(cost[n-1],cost[n-2]);
 }
+};
+```
+
+# 0876. Middle of the Linked List
+
+## Question
+
+Given the `head` of a singly linked list, return *the middle node of the linked list*.
+
+If there are two middle nodes, return **the second middle** node.
+
+ 
+
+**Example 1:**
+
+![img](https://assets.leetcode.com/uploads/2021/07/23/lc-midlist1.jpg)
+
+```
+Input: head = [1,2,3,4,5]
+Output: [3,4,5]
+Explanation: The middle node of the list is node 3.
+```
+
+**Example 2:**
+
+![img](https://assets.leetcode.com/uploads/2021/07/23/lc-midlist2.jpg)
+
+```
+Input: head = [1,2,3,4,5,6]
+Output: [4,5,6]
+Explanation: Since the list has two middle nodes with values 3 and 4, we return the second one.
+```
+
+## Solving Ideas
+
+Find the length of the linked list then traversal one half.
+
+
+
+## Answer
+
+```cpp
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        ListNode* current = head;
+        ListNode* middle = head;
+        int count = 0;
+        while(current!=NULL){
+            current = current->next;
+            count ++;
+        }
+        for(int i=0; i<count/2;i++){
+            middle = middle -> next;
+        }
+        
+        return middle;
+    }
+};
+```
+
+## Linked List Cycle Theorem:
+
+When fast pointed reaches end then slow is going to be at middle.
+
+```c++
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        ListNode *slow = head, *fast = head;
+        while (fast && fast->next){
+          	slow = slow->next;
+          	fast = fast->next->next;
+        }
+        return slow;
+        
+    }
 };
 ```
 
