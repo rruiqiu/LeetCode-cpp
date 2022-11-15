@@ -1,5 +1,23 @@
 # LeetCode in cpp
 
+# Templates:
+
+## Question
+
+
+
+## Solving Ideas
+
+
+
+## Answer
+
+```
+
+```
+
+
+
 # Intro
 
 Hi, below is my studying notes for the leetcode question.
@@ -116,6 +134,118 @@ vector<int> twoSum(vector<int> &numbers, int target)
 }
 };
 ```
+
+# [0002. Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
+
+## Question
+
+You are given two **non-empty** linked lists representing two non-negative integers. The digits are stored in **reverse order**, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
+
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+ 
+
+**Example 1:**
+
+![img](https://assets.leetcode.com/uploads/2020/10/02/addtwonumber1.jpg)
+
+```
+Input: l1 = [2,4,3], l2 = [5,6,4]
+Output: [7,0,8]
+Explanation: 342 + 465 = 807.
+```
+
+**Example 2:**
+
+```
+Input: l1 = [0], l2 = [0]
+Output: [0]
+```
+
+**Example 3:**
+
+```
+Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+Output: [8,9,9,9,0,0,0,1]
+```
+
+## Solving Ideas
+
+Adding each single linked list into a new list, if the adding value is greated than 10, store the digits and adding to the next digit.
+
+## Answer
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListListNode {
+ *     int val;
+ *     ListListNode *next;
+ *     ListListNode() : val(0), next(nullptr) {}
+ *     ListListNode(int x) : val(x), next(nullptr) {}
+ *     ListListNode(int x, ListListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        ListNode *dummy, *temp;
+        dummy = new ListNode();
+        temp = dummy;
+        ListNode *curr1 = l1, *curr2 = l2;
+        int count=0;
+        while (curr1!=NULL && curr2 !=NULL) {
+            int data =0;
+            data = curr1->val + curr2->val + count;
+            count =0;
+            if(data >= 10){
+                data = data %10;
+                count ++;
+            }
+            curr1 =curr1 ->next;
+            curr2 =curr2 ->next;
+            ListNode *newListNode = new ListNode(data);
+            temp->next=newListNode;
+            temp =temp ->next;
+        }
+        while(curr1 !=NULL){
+            int data =0;
+            data = curr1->val+count;
+            count =0;
+            if(data >= 10){
+                data = data %10;
+                count ++;
+            }
+            ListNode *newListNode = new ListNode(data);
+            temp->next=newListNode;
+            temp =temp ->next;
+            curr1 = curr1->next;
+        }
+        while(curr2 !=NULL){
+            int data =0;
+            data = curr2->val+count;
+            count =0;
+            if(data >= 10){
+                data = data %10;
+                count ++;
+            }
+            ListNode *newListNode = new ListNode(data);
+            temp->next=newListNode;
+            temp =temp ->next;
+            curr2 = curr2->next;
+        }
+        if(count!=0){
+            ListNode *newListNode = new ListNode(count);
+            temp->next=newListNode;
+            temp =temp ->next;
+        }
+
+        return dummy->next;
+    }
+};
+```
+
+
 
 
 
@@ -376,6 +506,84 @@ public:
             if (slow == fast) return true;
         }
         return false;
+    }
+};
+```
+
+
+
+# [0142. Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)
+
+## Question
+
+Given the `head` of a linked list, return *the node where the cycle begins. If there is no cycle, return* `null`.
+
+There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the `next` pointer. Internally, `pos` is used to denote the index of the node that tail's `next` pointer is connected to (**0-indexed**). It is `-1` if there is no cycle. **Note that** `pos` **is not passed as a parameter**.
+
+**Do not modify** the linked list.
+
+ 
+
+**Example 1:**
+
+![img](https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist.png)
+
+```
+Input: head = [3,2,0,-4], pos = 1
+Output: tail connects to node index 1
+Explanation: There is a cycle in the linked list, where tail connects to the second node.
+```
+
+**Example 2:**
+
+![img](https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test2.png)
+
+```
+Input: head = [1,2], pos = 0
+Output: tail connects to node index 0
+Explanation: There is a cycle in the linked list, where tail connects to the first node.
+```
+
+**Example 3:**
+
+![img](https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test3.png)
+
+```
+Input: head = [1], pos = -1
+Output: no cycle
+Explanation: There is no cycle in the linked list.
+```
+
+## Solving Ideas
+
+Using hashmap to store the corresponding address and values, if the cycled value appeared first, returned the find address
+
+## Answer
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        unordered_map<ListNode* , int> L;
+
+        while(head!=NULL){
+            if(L.find(head)==L.end()){
+                L[head] = head->val;
+   
+            }else{
+                return head;
+            }
+            head = head->next;
+        }
+        return NULL;
     }
 };
 ```

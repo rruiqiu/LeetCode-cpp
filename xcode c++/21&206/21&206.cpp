@@ -216,6 +216,62 @@ public:
         }
         return slow;
     }
+    
+    //Leetcode2 adding two numbers
+    Node* addTwoNumbers_reversely(Node* l1, Node* l2) {
+        Node *dummy, *temp;
+        dummy = new Node();
+        temp = dummy;
+        Node *curr1 = l1, *curr2 = l2;
+        int count=0;
+        while (curr1!=NULL && curr2 !=NULL) {
+            int data =0;
+            data = curr1->data + curr2->data + count;
+            count =0;
+            if(data >= 10){
+                data = data %10;
+                count ++;
+            }
+            curr1 =curr1 ->next;
+            curr2 =curr2 ->next;
+            Node *newNode = new Node(data);
+            temp->next=newNode;
+            temp =temp ->next;
+        }
+        while(curr1 !=NULL){
+            int data =0;
+            data = curr1->data+count;
+            count =0;
+            if(data >= 10){
+                data = data %10;
+                count ++;
+            }
+            Node *newNode = new Node(data);
+            temp->next=newNode;
+            temp =temp ->next;
+            curr1 = curr1->next;
+        }
+        while(curr2 !=NULL){
+            int data =0;
+            data = curr2->data+count;
+            count =0;
+            if(data >= 10){
+                data = data %10;
+                count ++;
+            }
+            Node *newNode = new Node(data);
+            temp->next=newNode;
+            temp =temp ->next;
+            curr2 = curr2->next;
+        }
+        if(count!=0){
+            Node *newNode = new Node(count);
+            temp->next=newNode;
+            temp = temp->next;
+        }
+        
+        return dummy->next;
+    }
 };
 
 
@@ -244,6 +300,7 @@ int main()
     
     cout << "Elements of the list are: ";
 
+    res.addTwoNumbers_reversely(ptr1,ptr2);
     result.setHead(res.mergeTwoLists(ptr1, ptr2));//ans linked to the head of the
 
     // Print the list
