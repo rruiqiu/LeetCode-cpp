@@ -73,6 +73,14 @@ int main()
 
    return 0;
 }
+
+	//for matrix
+	for (int i = 0; i < matrix.size(); i++){
+		for (int j = 0; j < matrix[i].size(); j++){
+		}
+	    cout << matrix[i][j];
+		
+	}//print the matrix
 ```
 
 
@@ -337,6 +345,7 @@ public:
     void deleteNode(int);
 };
 
+
 // Function to delete the
 // node at given position
 void Linkedlist::deleteNode(int nodeOffset)
@@ -500,5 +509,237 @@ int main()
     return 0;
 }
 
+//find MiddleNode and return the rest
+    ListNode* middleNode(ListNode *head) {
+        // write your code here.
+        int length=0;
+        ListNode *temp =head;
+        while(temp!=NULL){
+            length ++;
+            temp = temp->next;
+        }
+        temp = head;
+        int halfLength = length/2;
+        for(int i=0;i<halfLength;i++){
+            temp = temp ->next;
+        }
+        return temp;
+    }
+//swap two listNodes
+    ListNode* swapNodes(ListNode *head, int x, int y) {
+        // write your code here
+        // swap two nodes given two values
+        // find the two values first
+        // temp ListNode to store the net of v1
+        // the net of v1 = the net of v2
+        // the prevX of v1 = the prevX of v2
+        if(x==y){
+            return head;
+        }
+
+        ListNode *prevX = NULL, *currX = head;
+        while(currX && currX->val !=x){
+            prevX = currX;
+            currX = currX->next;
+        }
+        ListNode *prevY = NULL, *currY = head;
+        while(currY && currY->val !=y){
+            prevY = currY;
+            currY = currY->next;
+        }
+        if(currX == NULL || currY == NULL){
+            return head;
+        }
+        if (prevX != NULL)
+            prevX->next = currY;
+        else // Else make y as new head
+            head = currY;
+    
+        // If y is not head of linked list
+        if (prevY != NULL){prevY->next = currX;}
+        else{head = currX;} // Else make  as new head
+            
+    
+        // Swap net pointers
+        ListNode* temp = currY->next;
+        currY->next = currX->next;
+        currX->next = temp;
+        return head;
+    }
+```
+
+
+
+
+
+![image-20221205105519332](../../../Library/Application Support/typora-user-images/image-20221205105519332.png)
+
+
+
+# Bit manipulation
+
+```cpp
+Bitwise Operators:
+
+Not ~;
+And &;
+or |;
+XOR ^;  // 1^1 = 0;
+Left Shift <<;
+Right Shift >>;
+
+Left Shift:  0b001 left shift one -> 0b010
+1 << 1 = 2 = 2^1
+1 << 2 = 4 = 2^2 ,1 << 3 = 8 = 2^3
+1 << 4 = 16 = 2^4
+…
+eg: lets take N=22; which is 00010110 in Binary Form.
+      Now, if “N is left-shifted by 2” i.e N=N<<2 then N will become N=N*(2^2). Thus, N=22*(2^2)=88 which can be written as 01011000.
+        
+Right Shift: 0b010 right shift one -> 0b001
+eg: lets take N=32; which is 100000 in Binary Form.
+     Now, if “N is right-shifted by 2” i.e N=N>>2 then N will become N=N/(2^2). Thus, N=32/(2^2)=8 which can be written as 1000.
+
+//// Bitwise XOR based method 
+x = x ^ x; // x becomes 0 
+x = x ^ x; // x remains 0 
+x = x ^ x; // x remains 0
+// XOR can be used to find the extra number;
+		void swap(int a, int b){
+      a = a^b;
+      b = a^b;
+      a = a^b;
+      cout << a << b;
+    }
+// fidn the non-repeated num in an arrary
+    int singleNumber(vector<int>& nums) {
+        int result = 0;
+        
+        for (int i = 0; i < nums.size(); i++) {
+            result = result ^ nums[i];
+        }
+        
+        return result;
+    }
+// find the missing number of an arry
+    int missingNumber(vector<int>& nums) {
+        int n = nums.size();
+        int result = n;
+        for (int i = 0; i < n; i++) {
+            result ^= i ^ nums[i];
+        }
+        return result;
+    }
+//reverse bits
+    uint32_t reverseBits(uint32_t n) {
+        uint32_t result = 0;
+        
+        for (int i = 0; i < 32; i++) {
+            result <<= 1;
+            result |= n & 1;
+            n >>= 1;
+        }
+        
+        return result;
+    }
+//Counting bits;
+/*
+    Given int, return array: for each i, ans[i] is # of 1's
+    Ex. n = 2 -> [0,1,1], 0 = 0 has 0, 1 = 1 has 1, 2 = 10 has 1
+
+    x = 1001011101 = 605
+    x'= 0100101110 = 302
+    Differ by 1 bit, by removing LSB: f(x) = f(x / 2) + (x mod 2)
+
+    Time: O(n)
+    Space: O(n)
+*/
+    vector<int> countBits(int n) {
+        vector<int> result(n + 1, 0);
+        
+        for (int i = 1; i <= n; i++) {
+            //                 i / 2      i % 2
+            result[i] = result[i >> 1] + (i & 1);
+        }
+        
+        return result;
+    }
+//add two string a and b in binary format
+/* Example 1:
+
+Input: a = "11", b = "1"
+Output: "100" */
+		string addBinary(string a, string b) {
+        int i = a.length()-1;
+        int j = b.length()-1;
+        string ans;
+        int carry = 0;w
+        
+        while(i>=0 || j>=0 || carry){
+            if(i>=0){
+                carry += a[i] - '0';//convert char to int to allow integer operation
+                i--;
+            }
+            if(j>=0){
+                carry += b[j] - '0';
+                j--;
+            }
+            
+            ans += (carry%2 + '0');//convert int back to char and + is adding the number to 		the end
+            carry = carry/2;
+        }
+        reverse(ans.begin(),ans.end());
+        return ans;
+    }
+
+
+Just like the & and && operator, the double Operator is a "short-circuit" operator.
+
+For example:
+
+if(condition1 || condition2 || condition3)
+If condition1 is true, condition 2 and 3 will NOT be checked.
+
+if(condition1 | condition2 | condition3)
+  
+  
+```
+
+
+
+![Screenshot 2022-12-01 at 7.50.55 PM](../../Screenshot 2022-12-01 at 7.50.55 PM.png)
+
+# Data structure alignment
+
+```cpp
+using x86 32bits -> 4bytes;
+struct X
+{
+    short s; /* 2 bytes */
+             /* 2 padding bytes */
+    int   i; /* 4 bytes */
+    char  c; /* 1 byte */
+             /* 3 padding bytes */
+};
+
+struct Y
+{
+    int   i; /* 4 bytes */
+    char  c; /* 1 byte */
+             /* 1 padding byte */
+    short s; /* 2 bytes */
+};
+
+struct Z
+{
+    int   i; /* 4 bytes */
+    short s; /* 2 bytes */
+    char  c; /* 1 byte */
+             /* 1 padding byte */
+};
+
+const int sizeX = sizeof(struct X); /* = 12 */
+const int sizeY = sizeof(struct Y); /* = 8 */
+const int sizeZ = sizeof(struct Z); /* = 8 */
 ```
 
