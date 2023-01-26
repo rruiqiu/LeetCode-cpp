@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		73C52FE0293C77B100798171 /* dsad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 73C52FDF293C77B100798171 /* dsad.cpp */; };
+		73582F52296D9B9A00D76B59 /* Linked list.c in Sources */ = {isa = PBXBuildFile; fileRef = 73582F51296D9B9A00D76B59 /* Linked list.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +26,8 @@
 		7308DD302920D8F700A733F6 /* xcode c++ */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "xcode c++"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7308DD332920D8F700A733F6 /* 1480.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = 1480.cpp; sourceTree = "<group>"; };
 		7308DD432920E70D00A733F6 /* 392.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = 392.cpp; sourceTree = "<group>"; };
+		73582F50296D9B9A00D76B59 /* Linked list.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Linked list.h"; sourceTree = "<group>"; };
+		73582F51296D9B9A00D76B59 /* Linked list.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "Linked list.c"; sourceTree = "<group>"; };
 		736EB17029394E2E0008AD65 /* bit manipulation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "bit manipulation.cpp"; sourceTree = "<group>"; };
 		7384380F2921750300240188 /* 21&206.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "21&206.cpp"; sourceTree = "<group>"; };
 		738438112921D9FA00240188 /* linked list practise.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "linked list practise.cpp"; sourceTree = "<group>"; };
@@ -46,12 +48,8 @@
 		7308DD272920D8F700A733F6 = {
 			isa = PBXGroup;
 			children = (
-				73C52FDE293C77A600798171 /* dasd */,
-				736EB16F29394D520008AD65 /* bitmanipulation */,
-				738438112921D9FA00240188 /* linked list practise.cpp */,
-				7384380E292174F800240188 /* 21&206 */,
-				7308DD422920E6FB00A733F6 /* 392 */,
-				7308DD322920D8F700A733F6 /* 1480 */,
+				73582F56296D9C1300D76B59 /* Lt */,
+				73582F55296D9BF600D76B59 /* Linked list C */,
 				7308DD312920D8F700A733F6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,6 +76,28 @@
 				7308DD432920E70D00A733F6 /* 392.cpp */,
 			);
 			path = 392;
+			sourceTree = "<group>";
+		};
+		73582F55296D9BF600D76B59 /* Linked list C */ = {
+			isa = PBXGroup;
+			children = (
+				73582F50296D9B9A00D76B59 /* Linked list.h */,
+				73582F51296D9B9A00D76B59 /* Linked list.c */,
+			);
+			name = "Linked list C";
+			sourceTree = "<group>";
+		};
+		73582F56296D9C1300D76B59 /* Lt */ = {
+			isa = PBXGroup;
+			children = (
+				73C52FDE293C77A600798171 /* dasd */,
+				736EB16F29394D520008AD65 /* bitmanipulation */,
+				738438112921D9FA00240188 /* linked list practise.cpp */,
+				7384380E292174F800240188 /* 21&206 */,
+				7308DD422920E6FB00A733F6 /* 392 */,
+				7308DD322920D8F700A733F6 /* 1480 */,
+			);
+			path = Lt;
 			sourceTree = "<group>";
 		};
 		736EB16F29394D520008AD65 /* bitmanipulation */ = {
@@ -161,7 +181,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73C52FE0293C77B100798171 /* dsad.cpp in Sources */,
+				73582F52296D9B9A00D76B59 /* Linked list.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
