@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		73582F52296D9B9A00D76B59 /* Linked list.c in Sources */ = {isa = PBXBuildFile; fileRef = 73582F51296D9B9A00D76B59 /* Linked list.c */; };
+		736F3DFC29B6A15B003F0FCF /* 1539. Kth Missing Positive Number.c in Sources */ = {isa = PBXBuildFile; fileRef = 736F3DFB29B6A15B003F0FCF /* 1539. Kth Missing Positive Number.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,11 +26,13 @@
 		7308DD302920D8F700A733F6 /* xcode c++ */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "xcode c++"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7308DD332920D8F700A733F6 /* 1480.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = 1480.cpp; sourceTree = "<group>"; };
 		7308DD432920E70D00A733F6 /* 392.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = 392.cpp; sourceTree = "<group>"; };
-		73582F50296D9B9A00D76B59 /* Linked list.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Linked list.h"; sourceTree = "<group>"; };
 		73582F51296D9B9A00D76B59 /* Linked list.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "Linked list.c"; sourceTree = "<group>"; };
 		736EB17029394E2E0008AD65 /* bit manipulation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "bit manipulation.cpp"; sourceTree = "<group>"; };
+		736F3DFB29B6A15B003F0FCF /* 1539. Kth Missing Positive Number.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "1539. Kth Missing Positive Number.c"; sourceTree = "<group>"; };
 		7384380F2921750300240188 /* 21&206.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "21&206.cpp"; sourceTree = "<group>"; };
 		738438112921D9FA00240188 /* linked list practise.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "linked list practise.cpp"; sourceTree = "<group>"; };
+		7396648829B04551002D7AF9 /* practise.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = practise.c; sourceTree = "<group>"; };
+		7396E07029B34AA600012893 /* valid palindrome.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "valid palindrome.c"; sourceTree = "<group>"; };
 		73C52FDF293C77B100798171 /* dsad.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dsad.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,8 +83,10 @@
 		73582F55296D9BF600D76B59 /* Linked list C */ = {
 			isa = PBXGroup;
 			children = (
-				73582F50296D9B9A00D76B59 /* Linked list.h */,
 				73582F51296D9B9A00D76B59 /* Linked list.c */,
+				7396648829B04551002D7AF9 /* practise.c */,
+				7396E07029B34AA600012893 /* valid palindrome.c */,
+				736F3DFB29B6A15B003F0FCF /* 1539. Kth Missing Positive Number.c */,
 			);
 			name = "Linked list C";
 			sourceTree = "<group>";
@@ -181,7 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73582F52296D9B9A00D76B59 /* Linked list.c in Sources */,
+				736F3DFC29B6A15B003F0FCF /* 1539. Kth Missing Positive Number.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
